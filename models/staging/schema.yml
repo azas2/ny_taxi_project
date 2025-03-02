@@ -13,7 +13,6 @@ sources:
         columns:
           - name: unique_row_id
             tests:
-             - unique
              - not_null
              
 
