@@ -34,8 +34,5 @@ select
     COALESCE(SAFE_CAST(payment_type AS INT64), 0) as payment_type,
     {{ get_payment_discription("payment_type") }} as payment_type_description
 from tripdata
+where rn=1
 
-
-{% if var('is_test_run', default=true) %}
-LIMIT 100
-{% endif %}
