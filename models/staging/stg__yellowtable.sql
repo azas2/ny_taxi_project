@@ -34,7 +34,6 @@ select
     coalesce({{ dbt.safe_cast("payment_type", api.Column.translate_type("integer")) }},0) as payment_type,
     {{ get_payment_discription('payment_type') }} as payment_type_description
 from tripdatayellow
-where rn = 1
 
 -- dbt build --select <model.sql> --vars '{'is_test_run: false}'
 {% if var('is_test_run', default=true) %}
