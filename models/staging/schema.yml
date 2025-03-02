@@ -5,11 +5,21 @@ sources:
     schema: de_zoomcamp
     tables: 
       - name: green_tripdata_2019
+        columns:
+          - name: unique_row_id
+            tests:
+             - not_null
       - name: yellow_tripdata
+        columns:
+          - name: unique_row_id
+            tests:
+             - unique
+             - not_null
+             
 
 models:
   - name: stg__yellowtable
-    description: ""
+    description: "{{doc('stg_greentable')}}"
     columns:
       - name: tripid
         data_type: string
